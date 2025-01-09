@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [length, setLength] = useState(8);
   const [isNumber, setisNumber] = useState(false);
   const [isSpecial, setisSpecial] = useState(false);
   let [password, setPassword] = useState("");
+  const passRef = useRef(null);
 
-  function generatePass(isNumber, isSpecial) {
+  const generatePass = (isNumber, isSpecial) => {
     password = "";
     let refPass = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     let refNum = "1234567890";
@@ -21,10 +22,19 @@ function App() {
     }
 
     for (let i = 0; i < length; i++) {
-      password += refPass[Math.floor(Math.random() * refPass.length)];
+      password += refPass.charAt(Math.floor(Math.random() * refPass.length));
     }
     setPassword(password);
-  }
+  };
+
+  const copyPassword = () => {
+    console.log(passRef.current.select());
+    window.navigator.clipboard.writeText(password);
+  };
+
+  useEffect(() => {
+    generatePass(isNumber, isSpecial);
+  }, [length, isNumber, isSpecial]);
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -39,14 +49,18 @@ function App() {
         <div className="flex justify-between items-center">
           <input
             readOnly
-            disabled
+            // disabled
             type="text"
-            className="tracking-widest bg-white p-3 m-3 w-3/4 flex-3 text-slate-600 rounded-lg"
+            className="bg-white p-3 m-3 w-3/4 flex-3 text-slate-600 rounded-lg focus:border-none"
             placeholder="Password"
             value={password}
+            ref={passRef}
           />
           <div className="flex-1 text-xl">
-            <i className="fa-regular fa-copy cursor-pointer"></i>
+            <i
+              className="fa-regular fa-copy cursor-pointer"
+              onClick={copyPassword}
+            ></i>
           </div>
         </div>
         <div className="flex items-center gap-2 w-3/4">
@@ -64,7 +78,7 @@ function App() {
             type="checkbox"
             name="num"
             id="num"
-            onClick={(e) => (isNumber ? setisNumber(false) : setisNumber(true))}
+            onClick={() => (isNumber ? setisNumber(false) : setisNumber(true))}
           />
           <label htmlFor="num" className="mr-3">
             Number
