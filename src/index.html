@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="output.css" />
         <script src="script.js" defer></script>
+        <script
+            src="https://kit.fontawesome.com/5593a2500e.js"
+            crossorigin="anonymous"
+        ></script>
         <title>Password Generator</title>
     </head>
     <body
@@ -15,7 +19,7 @@
         class="flex justify-center items-center h-screen text-[#2a2a2a]"
     >
         <div
-            class="shadow-2xl h-[400px] w-[350px] bg-white rounded-2xl p-4 pt-6"
+            class="shadow-2xl h-[400px] w-[350px] bg-white rounded-2xl p-6 pt-6"
         >
             <div class="text-center">
                 <div class="text-xl font-bold tracking-wider">
@@ -24,6 +28,23 @@
                 <p class="text-xs text-[#5e5e5e]">
                     Generate strong random password!
                 </p>
+            </div>
+            <div
+                class="bg-gray-200 border border-gray-300 mt-4 rounded-2xl h-[70px] flex items-center px-4"
+            >
+                <div class="flex-3 font-mono text-lg">Assword!</div>
+                <div class="flex-1 flex gap-3">
+                    <button
+                        class="bg-[#2a2a2a] text-white px-2 text-xs p-1 rounded-lg"
+                    >
+                        Copy
+                    </button>
+                    <button
+                        class="bg-[#2a2a2a] text-white px-2 text-xs p-1 rounded-lg"
+                    >
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </body>
