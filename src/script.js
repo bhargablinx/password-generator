@@ -1,7 +1,11 @@
+const passLenSlider = document.querySelector(".pass-len-slider");
+
 function displayPassLength(length) {
     document.querySelector(".pass-length-holder").textContent = length;
 }
 
-document.querySelector(".pass-len-slider").addEventListener("input", (e) => {
+passLenSlider.addEventListener("input", (e) => {
     displayPassLength(e.target.value);
 });
+
+displayPassLength(passLenSlider.value);
