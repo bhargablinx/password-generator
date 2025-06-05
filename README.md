@@ -1,3 +1,0 @@
-# Password Generator
-
-![](./preview.png)
