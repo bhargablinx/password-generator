@@ -26,8 +26,24 @@ function generatePassword() {
     return password;
 }
 
+function displayPassword() {
+    document.querySelector(".pass-display-screen").textContent = password;
+}
+
 passLenSlider.addEventListener("input", (e) => {
     displayPassLength(e.target.value);
+});
+
+document.querySelector("#include-num").addEventListener("click", (e) => {
+    numAllowed = e.target.checked;
+});
+
+document.querySelector("#include-upper").addEventListener("click", (e) => {
+    upperCaseAllowed = e.target.checked;
+});
+
+document.querySelector("#include-symbol").addEventListener("click", (e) => {
+    symbolsAllowed = e.target.checked;
 });
 
 displayPassLength(passLenSlider.value);
