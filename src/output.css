@@ -241,6 +241,12 @@
   .border-collapse {
     border-collapse: collapse;
   }
+  .cursor-copy {
+    cursor: copy;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
   .resize {
     resize: both;
   }
@@ -369,6 +375,9 @@
   }
   .text-\[\#2a2a2a\] {
     color: #2a2a2a;
+  }
+  .text-\[\#4b4b4b\] {
+    color: #4b4b4b;
   }
   .text-\[\#5e5e5e\] {
     color: #5e5e5e;
