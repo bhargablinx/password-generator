@@ -31,7 +31,7 @@ function generatePassword() {
 }
 
 function displayPassword() {
-    document.querySelector(".pass-display-screen").textContent = password;
+    document.querySelector(".pass-display-screen").value = password;
 }
 
 passLenSlider.addEventListener("input", (e) => {
