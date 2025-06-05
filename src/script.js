@@ -57,6 +57,12 @@ document.querySelector(".re-generate-btn").addEventListener("click", () => {
     generatePassword();
 });
 
+document.querySelector(".copy-btn").addEventListener("click", () => {
+    const copyText = document.querySelector(".pass-display-screen");
+    copyText.select();
+    navigator.clipboard.writeText(password);
+});
+
 displayPassLength(passLenSlider.value);
 generatePassword();
 document.querySelector("#include-num").checked = false;
