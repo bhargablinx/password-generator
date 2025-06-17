@@ -34,7 +34,7 @@ function App() {
     useEffect(generatePassword, [length, isNum, isUpper, isSpecial]);
 
     return (
-        <div className="bg-slate-800 w-full h-screen flex justify-center items-center">
+        <div className="w-full h-screen flex justify-center items-center">
             <div className="shadow-2xl h-[400px] w-[380px] bg-white rounded-2xl p-6 pt-6">
                 <div className="text-center">
                     <div className="text-xl font-bold tracking-wider">
