@@ -1,4 +1,38 @@
+import { useEffect, useState, useRef } from "react";
+
 function App() {
+    const [length, setLength] = useState(10);
+    const [isNum, setIsNum] = useState(false);
+    const [isUpper, setUpper] = useState(false);
+    const [isSpecial, setIsSpecial] = useState(false);
+    const [password, setPassword] = useState("Demopassword");
+    const passRef = useRef(null);
+
+    const generatePassword = () => {
+        let tempPassword = "";
+        let passOptions = "abcdabcdefghijklmnopqrstuvwxyz";
+        const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "1234567890";
+        const symbols = `!#$&@%*`;
+        if (isUpper) {
+            passOptions = "abcdabcdefghiJKLMNOPQRSTUVWXYZ";
+        }
+        if (isNum) passOptions += numbers;
+        if (isSpecial) passOptions += symbols;
+        for (let i = 0; i < length; i++) {
+            let randomIndex = Math.floor(Math.random() * passOptions.length);
+            tempPassword += passOptions[randomIndex];
+        }
+        setPassword(tempPassword);
+    };
+
+    const copyToClipboard = () => {
+        window.navigator.clipboard.writeText(password);
+        passRef.current.select();
+    };
+
+    useEffect(generatePassword, [length, isNum, isUpper, isSpecial]);
+
     return (
         <div className="bg-slate-800 w-full h-screen flex justify-center items-center">
             <div className="shadow-2xl h-[400px] w-[380px] bg-white rounded-2xl p-6 pt-6">
